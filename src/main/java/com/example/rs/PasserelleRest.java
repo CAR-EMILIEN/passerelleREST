@@ -3,22 +3,32 @@ package com.example.rs;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import com.example.services.Passerelle;
 
 
-@Path( "/passerelle" )
+@Path( "/p" )
 public class PasserelleRest {
 
-	@Inject private Passerelle passerelle;
+	@Inject private Passerelle passerelle = new Passerelle();
 	
-	@Produces ( "application/octet-stream")
+	//@Produces ( "application/octet-stream")
 	@GET
-	public truc getLs()
+	@Produces("text/html")
+	public String getLs()
 	{
-		return passerelle.ls();
+		String ls = passerelle.ls();
+		return ls;
 	}
 	
-	
+	@GET
+	@Path("/{hostFTP}/{cmd}")
+	public String command(@PathParam("hostFTP") String host, @PathParam("cmd") String cmd)
+	{
+		return passerelle.parseCommand(host,cmd);
+		
+		
+	}
 }
