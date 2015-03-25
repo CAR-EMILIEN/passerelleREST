@@ -86,7 +86,7 @@ public class ClientFTP {
 	public static void main (String[] args) throws SocketException, IOException {
 		ClientFTP client = new ClientFTP ("TOTO", "123", 4000, "localhost");
 		System.out.println("COUCOU");
-		client.ls(null);
+		client.ls(".");
 		client.ftp.disconnect();
 	}
 }

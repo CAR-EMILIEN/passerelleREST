@@ -1,8 +1,11 @@
 package com.example.services;
 
+import java.net.InetAddress;
+
 import org.springframework.stereotype.Service;
 import org.apache.commons.net.ftp.*;
 
+import com.example.model.ClientFTP;
 import com.example.model.Host;
 
 
@@ -10,7 +13,7 @@ import com.example.model.Host;
 public class Passerelle {
 	
 	
-	
+
 	public String ls() {
 		
 		return "toto est content";
